@@ -17,14 +17,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Cochera {
+public class TipoPersona {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idTipoPersona;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCochera;
-    private Integer numero;
-    private boolean nivel;
-    
-
-
+	private String descripcion;
 }

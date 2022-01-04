@@ -9,23 +9,22 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Builder
-@NoArgsConstructor
+@Table
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Departamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long departamentoId;
+    private Integer idDepartamento;
 
     private Integer numero;
     private Integer flat;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "personaId", referencedColumnName = "personaId")
-    private Persona persona;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "torreId", referencedColumnName = "torreId")
+    @JoinColumn(name = "id_torre", nullable = false, foreignKey = @ForeignKey(name = "FK_torre"))
     private Torre torre;
 }
